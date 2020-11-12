@@ -30,6 +30,13 @@ RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
    chmod -R g+rwX /opt/mendix &&\
    chmod g+w /etc/passwd
 
+#NewRelic section
+RUN mkdir -p /opt/newrelic
+ADD ./newrelic/newrelic1.jar /opt/newrelic/newrelic.jar
+ADD ./newrelic/newrelic.yml /opt/newrelic/newrelic.yml
+chown -R mendix:root /opt/newrelic
+chmod -R g+rwX /opt/newrelic
+
 # Copy python scripts which execute the buildpack (exporting the VCAP variables)
 COPY --chown=mendix:root scripts/compilation /opt/mendix/buildpack
 # Copy project model/sources
