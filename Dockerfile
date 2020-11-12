@@ -14,6 +14,8 @@ ARG BUILD_PATH=project
 ARG DD_API_KEY
 # CF buildpack version
 ARG CF_BUILDPACK=master
+# 
+RUN echo "New Relic Section"
 
 # Each comment corresponds to the script line:
 # 1. Create all directories needed by scripts
@@ -34,8 +36,8 @@ RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
 RUN mkdir -p /opt/newrelic
 ADD ./newrelic/newrelic1.jar /opt/newrelic/newrelic.jar
 ADD ./newrelic/newrelic.yml /opt/newrelic/newrelic.yml
-chown -R mendix:root /opt/newrelic
-chmod -R g+rwX /opt/newrelic
+RUN chown -R mendix:root /opt/newrelic
+RUN chmod -R g+rwX /opt/newrelic
 
 # Copy python scripts which execute the buildpack (exporting the VCAP variables)
 COPY --chown=mendix:root scripts/compilation /opt/mendix/buildpack
