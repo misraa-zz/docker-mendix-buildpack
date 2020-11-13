@@ -33,6 +33,13 @@ RUN wget https://mxblobstore.azureedge.net/mxblobstore/libpng12-0_1.2.54-1ubuntu
    echo "CF Buildpack version ${CF_BUILDPACK}" &&\
    wget -qO- https://github.com/mxclyde/cf-mendix-buildpack/archive/${CF_BUILDPACK}.tar.gz | tar xvz -C buildpack --strip-components 1
 
+#NewRelic section
+RUN  echo "New Relic Section"
+RUN mkdir -p /opt/newrelic
+ADD ./newrelic/newrelic1.jar /opt/newrelic/newrelic.jar
+ADD ./newrelic/newrelic.yml /opt/newrelic/newrelic.yml
+RUN chown -R mendix:root /opt/newrelic
+RUN chmod -R g+rwX /opt/newrelic
 
 # Copy python scripts which execute the buildpack (exporting the VCAP variables)
 COPY scripts/compilation /buildpack 
