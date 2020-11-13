@@ -20,6 +20,15 @@ RUN mkdir -p buildpack/.local && \
    (wget -qO- https://github.com/mendix/cf-mendix-buildpack/archive/master.tar.gz \
    | tar xvz -C buildpack --strip-components 1)
 
+
+#NewRelic section
+RUN  echo "New Relic Section"
+RUN mkdir -p /opt/newrelic
+ADD ./newrelic/newrelic1.jar /opt/newrelic/newrelic.jar
+ADD ./newrelic/newrelic.yml /opt/newrelic/newrelic.yml
+RUN chown -R mendix:root /opt/newrelic
+RUN chmod -R g+rwX /opt/newrelic
+
 # Copy python scripts which execute the buildpack (exporting the VCAP variables)
 COPY scripts/compilation /buildpack
 
@@ -42,6 +51,7 @@ EXPOSE $PORT
 RUN mkdir -p "/.java/.userPrefs/com/mendix/core"
 RUN mkdir -p "/root/.java/.userPrefs/com/mendix/core"
 RUN ln -s "/.java/.userPrefs/com/mendix/core/prefs.xml" "/root/.java/.userPrefs/com/mendix/core/prefs.xml"
+
 
 # Start up application
 COPY scripts/ /build
