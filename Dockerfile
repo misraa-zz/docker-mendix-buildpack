@@ -36,7 +36,7 @@ RUN wget https://mxblobstore.azureedge.net/mxblobstore/libpng12-0_1.2.54-1ubuntu
 #NewRelic section
 RUN  echo "New Relic Section"
 RUN mkdir -p /opt/newrelic
-ADD ./newrelic/newrelic1.jar /opt/newrelic/newrelic.jar
+ADD ./newrelic/newrelic.jar /opt/newrelic/newrelic.jar
 ADD ./newrelic/newrelic.yml /opt/newrelic/newrelic.yml
 RUN chown -R mendix:root /opt/newrelic
 RUN chmod -R g+rwX /opt/newrelic
