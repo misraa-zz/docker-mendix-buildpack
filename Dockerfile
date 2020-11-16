@@ -38,12 +38,12 @@ RUN echo "New Relic Section"
 RUN echo  "New Relic Section -" $BUILD_PATH
 RUN mkdir -p /opt/newrelic
 RUN pwd
-RUN echo "Listing directory under /opt"
+RUN echo "Listing directory"
 RUN ls -l 
-RUN cd /opt
-RUN ls -l
-RUN cd /opt/newrelic
-RUN ls -l
+RUN echo "Listing directory under /opt"
+RUN ls -l /opt/
+RUN echo "Listing directory under /opt/newrelic"
+RUN ls -l /opt/newrelic/
 ADD ./newrelic/newrelic.jar /opt/newrelic/newrelic.jar
 ADD ./newrelic/newrelic.yml /opt/newrelic/newrelic.yml
 RUN chown -R mendix:root /opt/newrelic
