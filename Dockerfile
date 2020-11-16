@@ -45,10 +45,10 @@ RUN ls -l /opt/
 RUN echo "Listing directory under /opt/newrelic"
 RUN ls -l /opt/newrelic/
 ADD newrelic* /opt/newrelic/
-ADD https://github.com/misraa-zz/docker-mendix-buildpack/blob/telegrafext-nonroot/newrelic/newrelic-api.jar /opt/newrelic/newrelic.jar
-ADD https://github.com/misraa-zz/docker-mendix-buildpack/blob/telegrafext-nonroot/newrelic/newrelic.yml /opt/newrelic/newrelic.yml
-RUN chown -R mendix:root /opt/newrelic
-RUN chmod -R g+rwX /opt/newrelic
+#ADD https://github.com/misraa-zz/docker-mendix-buildpack/blob/telegrafext-nonroot/newrelic/newrelic-api.jar /opt/newrelic/newrelic.jar
+#ADD https://github.com/misraa-zz/docker-mendix-buildpack/blob/telegrafext-nonroot/newrelic/newrelic.yml /opt/newrelic/newrelic.yml
+#RUN chown -R mendix:root /opt/newrelic
+#RUN chmod -R g+rwX /opt/newrelic
 
 # Copy python scripts which execute the buildpack (exporting the VCAP variables)
 COPY scripts/compilation /buildpack 
