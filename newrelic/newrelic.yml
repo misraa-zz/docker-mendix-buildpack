@@ -222,7 +222,7 @@ common: &default_settings
 
     # Set to false to disable cross application tracing.
     # Default is true.
-    enabled: false
+    enabled: true
 
   # Thread profiler measures wall clock time, CPU time, and method call counts
   # in your application's threads as they run.
@@ -250,14 +250,14 @@ common: &default_settings
     # This instrumentation reports the name of the user principal returned from
     # HttpServletRequest.getUserPrincipal() when servlets and filters are invoked.
     com.newrelic.instrumentation.servlet-user:
-      enabled: false
+      enabled: true
 
     com.newrelic.instrumentation.spring-aop-2:
       enabled: false
 
     # This instrumentation reports metrics for resultset operations.
     com.newrelic.instrumentation.jdbc-resultset:
-      enabled: false
+      enabled: true
 
     # Classes loaded by classloaders in this list will not be instrumented.
     # This is a useful optimization for runtimes which use classloaders to
