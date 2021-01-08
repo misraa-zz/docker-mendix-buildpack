@@ -211,6 +211,9 @@ common: &default_settings
   # Default is false.
   distributed_tracing:
     enabled: true
+  infinite_tracing:
+    trace_observer:
+      host: "ef4c5362-f73e-46bf-a093-4f6a72930a7b.aws-us-east-1.tracing.edge.nr-data.net"    
 
   # Cross Application Tracing adds request and response headers to
   # external calls using supported HTTP libraries to provide better
